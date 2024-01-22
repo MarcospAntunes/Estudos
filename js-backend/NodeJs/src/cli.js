@@ -1,15 +1,24 @@
+import listaValidada from "./http-validacao.js";
 import pegaArquivo from "./index.js";
 import fs from 'fs';
 
-const caminho = process.argv;
+const caminhoArquivo = process.argv;
 
-function imprimeResultado(resultado, identificador = "") {
-    console.log(identificador, resultado);
+async function imprimeResultado(valida, resultado, identificador = "") {
+
+    if(valida) {
+        console.log(identificador, await listaValidada(resultado));
+    } else {
+        console.log(identificador, resultado);
+    }
+    
 }
 
 async function processaTexto(argumentos) {
+    const valida = argumentos[3] === '--valida';
+    const caminho = argumentos[2];
     try {
-        fs.lstatSync(argumentos);
+        fs.lstatSync(caminho);
     } catch(erro) {
         if(erro.code === "ENOENT") {
             console.log("Arquivo ou diretório não existe.");
@@ -17,16 +26,16 @@ async function processaTexto(argumentos) {
         }
     }
 
-    if(fs.lstatSync(argumentos).isFile()) {
-        const resultado = await pegaArquivo(argumentos);
-        imprimeResultado(resultado);
-    } else if(fs.lstatSync(argumentos).isDirectory()) {
-        const arquivos = await fs.promises.readdir(argumentos);
+    if(fs.lstatSync(caminho).isFile()) {
+        const resultado = await pegaArquivo(caminho);
+        imprimeResultado(valida, resultado);
+    } else if(fs.lstatSync(caminho).isDirectory()) {
+        const arquivos = await fs.promises.readdir(caminho);
         arquivos.forEach(async (arquivo) => {
             const lista = await pegaArquivo(`${caminho}/${arquivo}`);
-            imprimeResultado(lista, arquivo);
+            imprimeResultado(valida, lista, arquivo);
         })
     }
 }
 
-processaTexto(caminho[2])
+processaTexto(caminhoArquivo);
