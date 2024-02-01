@@ -18,3 +18,8 @@ const novoDocente = new Docente("Mariana", "mariana@gmail.com", "2021-01-01");
 console.log(novoDocente);
 console.log(novoDocente.exibirInfos());
 console.log(novoDocente.aprovaEstudante("Marcos", "JavaScript"))
+
+const novoAdmin2 = new Admin("Juliana", "juliana@gmail.com", "2021-01-01");
+novoAdmin2.nome = "teste"; // -> Set
+novoAdmin2.nome = ""; // Erro, pois a classe não permite string vazia
+console.log(novoAdmin2.nome); // -> Get

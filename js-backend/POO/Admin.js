@@ -5,9 +5,9 @@ export default class Admin extends User {
         super(nome, email, nascimento, role, ativo)
     } 
 
-    nomeAdmin() {
-        return `${this.#nome}` // -> Erro, pois é um campo privada
-    }
+    // nomeAdmin() {
+    //     return `${this.#nome}` // -> Erro, pois é um campo privada
+    // }
 
     criarCursos(nomeDoCurso, vagas) {
         return `Curso ${nomeDoCurso} criado com ${vagas} vagas`

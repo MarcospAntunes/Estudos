@@ -14,18 +14,35 @@ export default class User {
         this.#ativo = ativo
     }
 
-    #montaObjUser() {
-        return({
-            nome: this.#nome,
-            email: this.#email,
-            nascimento: this.#nascimento,
-            role: this.#role,
-            ativo: this.#ativo
-        })
+    get nome() {
+        // Pode ter uma lógica
+        return this.#nome
+    }
+
+    get email() {
+        // Pode ter uma lógica
+        return this.#email
+    }
+
+    get nascimento() {
+        // Pode ter uma lógica
+        return this.#nascimento
+    }
+
+    get role() {
+        // Pode ter uma lógica
+        return this.#role
+    }
+
+    set nome(novoNome) {
+        // Pode ter uma lógica
+        if(novoNome === "") {
+            throw new Error("Formato inválido!")
+        }
+        this.#nome = novoNome;
     }
 
     exibirInfos() {
-        const objUser = this.#montaObjUser();
-        return `${objUser.nome}, ${objUser.email}`
+        return `${this.nome}, ${this.email}`
     }
 }
