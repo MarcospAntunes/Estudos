@@ -1,5 +1,7 @@
-import Head from "next/head";
-import Link from "next/link";
+// import Head from "next/head";
+// import Link from "next/link";
+import FAQScreen from "../src/screens/FAQScreen";
+export default FAQScreen;
 
 // SSG - Static Site Generation
 // SSR - Server Side Rendering
@@ -23,24 +25,24 @@ export async function getStaticProps() {
     }
 }
 
-export default function FAQPage({ data }) {
-    return(
-        <div>
-            <Head>
-                <title>FAQ - Alura Cases Campanha</title>
-            </Head>
-            <h1>FAQ</h1>
-            <Link href="/">home</Link>
-            <ul>
-                {data.map((item) => (
-                    <li key={item.question}>
-                        <article>
-                            <h2>{item.question}</h2>
-                            <li>{item.answer}</li>
-                        </article>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
-}
+// export default function FAQPage({ data }) {
+//     return(
+//         <div>
+//             <Head>
+//                 <title>FAQ - Alura Cases Campanha</title>
+//             </Head>
+//             <h1>FAQ</h1>
+//             <Link href="/">home</Link>
+//             <ul>
+//                 {data.map((item) => (
+//                     <li key={item.question}>
+//                         <article>
+//                             <h2>{item.question}</h2>
+//                             <li>{item.answer}</li>
+//                         </article>
+//                     </li>
+//                 ))}
+//             </ul>
+//         </div>
+//     )
+// }
