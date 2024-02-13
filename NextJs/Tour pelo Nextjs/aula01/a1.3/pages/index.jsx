@@ -1,7 +1,11 @@
+import Link from "next/link";
+
 function HomePage() {
     return (
         <div>
-            Welcome to Next.js!
+            <img src="/images/avatar.png" alt="Avatar" />
+            <h1>Welcome to Next.js!</h1>
+            <Link href={"/sobre"}>Ir para sobre</Link>
         </div>
     )
 }
