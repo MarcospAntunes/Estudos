@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import React from 'react';
 
 
-export default function LinkPrefetchPage(): JSX.Element {
+export default function LinkPrefetchPage() {
   return (
     <div>
       <li>
