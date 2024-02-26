@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "dev": "next dev --port=4000",
     "build": "babel src -d dist",
-    "start": "node ./pages/index.mjs"
+    "start": "node ./pages/index.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
