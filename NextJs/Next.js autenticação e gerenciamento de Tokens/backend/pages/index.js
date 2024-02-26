@@ -9,7 +9,7 @@ const DynamicSwaggerUI = dynamic(() => import("swagger-ui-react"), {
 });
 
 const ApiDoc = ({ spec }) => {
-  return <DynamicSwaggerUI spec={spec} />;
+  return <DynamicSwaggerUI url="https://petstore.swagger.io/v2/swagger.json" spec={spec} />;
 };
 
 export const getStaticProps = async ctx => {
