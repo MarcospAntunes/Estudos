@@ -12,7 +12,22 @@ export const authService = {
                     throw new Error("Usuário ou senha inválidos!")
                 }
                 const body = res.body;
-                tokenService.save(body.data.acess_token);
+                tokenService.save(body.data.access_token);
             })
+    },
+    async getSession(ctx) {
+        const token = tokenService.get(ctx);
+
+        return HttpClient(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/session`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        })
+        .then((res) => {
+            if(!res.ok) throw new Error("Não autorizado");
+            
+            return res.body.data
+        })
     }
 }

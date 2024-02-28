@@ -8,16 +8,19 @@ const ONE_DAY = ONE_HOUR * 24;
 const ONE_YEAR = ONE_DAY * 365;
 
 export const tokenService = {
-    save(ctx = null, accessToken) {
+    save(accessToken, ctx = null) {
         globalThis?.sessionStorage?.setItem(ACCESS_TOKEN_KEY, accessToken)
+        console.log(ctx)
         nookies.set(ctx, ACCESS_TOKEN_KEY, accessToken, {
             maxAge: ONE_YEAR,
             path: "/",
         });
     },
 
+    
     get(ctx = null) {
         const cookies = nookies.get(ctx)
+       
         return cookies[ACCESS_TOKEN_KEY] || "";
     },
     delete(ctx = null) {
