@@ -1,5 +1,4 @@
-import { authService } from '../src/services/auth/authService';
-import withSession from '../src/services/auth/session';
+import { withSession } from '../src/services/auth/session';
 
 function AuthPageSSR(props) {
     return (
