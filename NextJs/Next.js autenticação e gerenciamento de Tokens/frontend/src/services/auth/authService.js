@@ -35,6 +35,7 @@ export const authService = {
             headers: {
                 'authorization': `Bearer ${token}`
             },
+            ctx,
             refresh: true
         })
         .then((res) => {
