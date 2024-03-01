@@ -1,4 +1,6 @@
 import { authService } from "./authService";
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 function withSession(func) {
     return async(ctx) => {
@@ -23,10 +25,6 @@ function withSession(func) {
         }
     }
 }
-
-import { useEffect, useState } from 'react'
-import { authService } from '../src/services/auth/authService';
-import { useRouter } from 'next/router'
 
 function useSession() {
     const [session, setSession] = useState(null);
