@@ -4,12 +4,12 @@
 import { tokenService } from "../../services/auth/tokenService";
 import nookies from 'nookies'
 
-export async function HttpClient(fetchUrl, fetchOptions) {
+export async function HttpClient(fetchUrl, fetchOptions = {}) {
     return fetch(fetchUrl, {
         ...fetchOptions,
         headers: {
             'Content-Type': 'application/json',
-            ...fetchOptions.headers,
+            ...fetchOptions.headers || {},
         },
         body: fetchOptions.body ? JSON.stringify(fetchOptions.body) : null
     })

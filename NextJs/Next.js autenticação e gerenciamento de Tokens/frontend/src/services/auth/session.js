@@ -63,7 +63,7 @@ function withSessionHOC(Component) {
 
         const modifiedProps = {
             ...props,
-            session: session.data.session
+            session: session.data
         }
         return (
             <Component {...modifiedProps}/>
