@@ -1,9 +1,20 @@
 const TOKEN = process.env.DATO_TOKEN;
 
-export async function cmsService({ query }) {
+const globalQuery = `
+    query {
+        globalFooter {
+            description
+        }
+    }
+`;
 
+const baseEndpoint = 'https://graphql.datocms.com/';
+const previewEndpoint = 'https://graphql.datocms.com/preview';
+
+export async function cmsService({ query, preview = false}) {
     try {
-        const pageContentRes = await fetch('https://graphql.datocms.com/', {
+        const endpoint = preview ? previewEndpoint : baseEndpoint;
+        const pageContentRes = await fetch(endpoint, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -20,10 +31,36 @@ export async function cmsService({ query }) {
                 }
 
                 throw new Error(JSON.stringify(body));
-            })
+            });
+
+        const globalContentRes = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': `Bearer ${TOKEN}`
+        },
+        body: JSON.stringify({
+            query: globalQuery,
+        })
+    })
+        .then(async(resServer) => {
+            const body = await resServer.json();
+            if(!body.errors) {
+                return body;
+            }
+
+            throw new Error(JSON.stringify(body));
+        })
+
+    const data = {
+        ...pageContentRes.data,
+        globalContent: {
+            ...globalContentRes.data
+        }
+    }
 
         return {
-            data: pageContentRes.data
+            data: data
         }
     } catch(err) {
         console.log(err)
