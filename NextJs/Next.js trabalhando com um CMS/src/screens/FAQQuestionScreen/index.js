@@ -5,6 +5,8 @@ import { Box, Text, theme } from '../../theme/components';
 import { cmsService } from '../../infra/cms/cmsService';
 import { StructuredText, renderNodeRule } from 'react-datocms/structured-text';
 import { isHeading } from 'datocms-structured-text-utils';
+import CmsProvider from '../../infra/cms/cmsProvider';
+import { pageHOC } from '../../components/wrappers/pageHOC';
 
 export async function getStaticPaths() {
   return {
@@ -43,7 +45,7 @@ export async function getStaticProps({ params, preview }) {
   }
 }
 
-export default function FAQQuestionScreen({ cmsContent }) {
+function FAQQuestionScreen({ cmsContent }) {
   console.log(cmsContent)
   return (
     <>
@@ -93,7 +95,9 @@ export default function FAQQuestionScreen({ cmsContent }) {
         </Box>
       </Box>
 
-      <Footer description={cmsContent.globalContent.globalFooter.description} />
+      <Footer />
     </>
   )
 }
+
+export default pageHOC(FAQQuestionScreen);
