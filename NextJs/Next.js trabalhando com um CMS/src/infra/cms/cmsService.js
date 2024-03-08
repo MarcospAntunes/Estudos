@@ -11,7 +11,7 @@ const globalQuery = `
 const baseEndpoint = 'https://graphql.datocms.com/';
 const previewEndpoint = 'https://graphql.datocms.com/preview';
 
-export async function cmsService({ query, preview = false}) {
+export async function cmsService({ query, preview = false, variables}) {
     try {
         const endpoint = preview ? previewEndpoint : baseEndpoint;
         const pageContentRes = await fetch(endpoint, {
@@ -22,6 +22,7 @@ export async function cmsService({ query, preview = false}) {
             },
             body: JSON.stringify({
                 query,
+                variables
             })
         })
             .then(async(resServer) => {
