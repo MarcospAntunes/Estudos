@@ -23,6 +23,7 @@ export async function getStaticProps({ preview }) {
               }
               ... on CommonFooterRecord {
                 id
+                visible
               }
               ... on PagehomeHerosectionRecord {
                 id
@@ -40,7 +41,10 @@ export async function getStaticProps({ preview }) {
   })
 
   return {
-    props: {cmsContent}
+    props: {
+      cmsContent
+    },
+    revalidate: 60,
   }
 }
 
