@@ -1,0 +1,15 @@
+{
+  "private": "true",
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "projects/*",
+      "setup/*"
+    ]
+  },
+  "scripts": {
+    "dev:web-public": "npm run dev --prefix projects/web-public",
+    "build:web-public": "npm run build --prefix projects/web-public",
+    "start:web-public": "npm run start --prefix projects/web-public"
+  }
+}
