@@ -8,8 +8,10 @@
     ]
   },
   "scripts": {
-    "dev:web-public": "npm run dev --prefix projects/web-public",
-    "build:web-public": "npm run build --prefix projects/web-public",
-    "start:web-public": "npm run start --prefix projects/web-public"
+    "web-public": "yarn workspace @alura/web-public",
+    "dev:web-public": "yarn web-public dev",
+    "build:web-public": "yarn web-public build",
+    "start:web-public": "yarn web-public start",
+    "design-system": "yarn workspace @alura/design-system"
   }
 }

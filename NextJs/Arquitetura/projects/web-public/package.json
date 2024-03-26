@@ -13,12 +13,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@alura/design-system": "*",
+    "@alura/utils": "*",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.70",
     "next": "^12.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "typescript": "^5.4.3",
-    "@alura/utils": "*"
+    "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "next-compose-plugins": "^2.2.1",
+    "next-transpile-modules": "^10.0.1"
   }
 }
