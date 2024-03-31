@@ -25,6 +25,7 @@
     "lint:web-public": "yarn web-public lint",
     "design-system": "yarn workspace @alura/design-system",
     "utils": "yarn workspace @alura/utils",
-    "test:utils": "yarn utils test"
+    "test:utils": "yarn utils test",
+    "test:design-system": "yarn design-system test"
   }
 }
