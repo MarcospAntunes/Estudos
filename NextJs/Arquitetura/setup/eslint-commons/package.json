@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "echo 'Not necessary'"
+    "lint": "echo 'Not necessary'",
+    "test": "echo 'Not necessary'"
   },
   "keywords": [],
   "author": "",

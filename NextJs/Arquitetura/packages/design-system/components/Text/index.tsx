@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 
 const StyledText = styled.span`
-  font-family: sans-serif;
+  font-family: sans;
 `;
 
 interface TextProps {
