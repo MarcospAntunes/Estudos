@@ -16,7 +16,7 @@ jobs:
       - name: Run navigate to Nextjs dir
         run: cd Nextjs
 
-        - name: Run navigate to CI&CD dir
+      - name: Run navigate to CI&CD dir
         run: cd 'CI&CD com GitHub Actions'
       
       - name: Run Linter
