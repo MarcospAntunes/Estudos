@@ -10,7 +10,7 @@ on:
 jobs:
   linter:
     runs-on: ubuntu-latest
-    setps:
+    steps:
       - uses: actions/checkout@v3
 
       - name: Run navigate to CI&CD dir
