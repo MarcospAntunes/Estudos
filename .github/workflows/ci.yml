@@ -14,7 +14,10 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run navigate to Nextjs dir
-        run: cd NextJs\CI_CD_com_GitHub_Actions
+        run: cd estudos/NextJs/CI_CD_com_GitHub_Actions
+
+      - name: Run install dependaces
+        run: yarn install
       
       - name: Run Linter
         run: yarn lint
