@@ -7,14 +7,14 @@ on:
     types: [opened, synchronize]
 
   
-  jobs:
-    linter:
-      runs-on: ubuntu-latest
-      setps:
-        - uses: actions/checkout@v3
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    setps:
+      - uses: actions/checkout@v3
 
-        - name: Run navigate to CI&CD dir
-          run: cd ./Nextjs/'CI&CD com GitHub Actions' 
-        
-        - name: Run Linter
-          run: yarn lint
+      - name: Run navigate to CI&CD dir
+        run: cd ./Nextjs/'CI&CD com GitHub Actions' 
+      
+      - name: Run Linter
+        run: yarn lint
