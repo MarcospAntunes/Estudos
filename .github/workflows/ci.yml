@@ -1,5 +1,12 @@
 name: "CI (Integração Continua): Main Workflow"
 
+
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+
 on:
   push:
     branches: ["main"]
@@ -21,3 +28,17 @@ jobs:
       
       - name: Run Linter
         run: yarn lint
+  
+  preview:
+    runs-on: ubunto-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run navigate to Nextjs dir
+        run: cd Estudos/NextJs/CI_CD_com_GitHub_Actions
+
+      - name: Run install dependaces
+        run: yarn install
+
+      - name: Run deploy
+        run:  yarn deploy:preview

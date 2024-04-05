@@ -1,5 +1,6 @@
 {
     "name": "06-github-actions-front-end",
+    "type": "module",
     "version": "1.0.0",
     "main": "index.js",
     "author": "",
@@ -16,8 +17,10 @@
         "start": "next start",
         "lint": "next lint",
         "lint:fix": "next lint --fix",
-        "deploy": "yarn build && vercel ./build --confirm --no-clipboard",
-        "deploy:prod": "yarn deploy --token=$VERCEL_TOKEN --prod"
+        "deploy": "yarn build && vercel ./build --confirm --no-clipboard --token=$VERCEL_TOKEN",
+        "deploy:prod": "yarn deploy  --prod",
+        "deploy:stage": "yarn deploy",
+        "deploy:preview": "node ./scripts/pullRequestPreview"
     },
     "devDependencies": {
         "eslint": "8.17.0",
