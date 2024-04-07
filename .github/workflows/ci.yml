@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run navigate to Nextjs dir
-        run: cd Estudos/NextJs/CI_CD_com_GitHub_Actions
+        run: cd Estudos/NextJs/Ci-Cd-github-actions
 
       - name: Run install dependaces
         run: yarn install
@@ -31,15 +31,37 @@ jobs:
         run: yarn lint
   
   preview:
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
       - name: Run navigate to Nextjs dir
-        run: cd Estudos/NextJs/CI_CD_com_GitHub_Actions
+        run: cd Estudos/NextJs/Ci-Cd-github-actions
 
       - name: Run install dependaces
         run: yarn install
 
       - name: Run deploy
         run:  yarn deploy:preview
+  
+  test_e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.18.2
+          cache: 'yarn'
+      - name: Cypress
+        uses: cypress-io/github-actions@v4
+        with:
+          browser: chrome
+
+      - name: Run navigate to Nextjs dir
+        run: cd Estudos/NextJs/Ci-Cd-github-actions
+
+      - name: Run install dependaces
+        run: yarn install
+
+      - name: Run cypress
+        run:  yarn test:e2e
