@@ -53,7 +53,7 @@ jobs:
           node-version: 18.18.2
           cache: 'yarn'
       - name: Cypress
-        uses: cypress-io/github-actions@v4
+        uses: cypress-io/github-action@v4
         with:
           browser: chrome
 
