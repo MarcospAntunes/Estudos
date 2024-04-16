@@ -15,7 +15,8 @@
   "dependencies": {
     "next": "^12.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -29,6 +30,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/node": "^18.0.1",
     "@types/react": "^18.0.14",
+    "babel-plugin-styled-components": "^2.1.4",
     "babel-loader": "^8.2.5",
     "typescript": "^4.7.4"
   }
