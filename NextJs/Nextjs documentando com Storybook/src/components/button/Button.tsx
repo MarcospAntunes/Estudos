@@ -2,6 +2,7 @@ import React from "react"
 import styled from 'styled-components';
 
 interface ButtonProps {
+  /** Essa prop é baseada nas opções de cor que temos no nosso tema */
   variant?: 'primary' | 'accent'
   children: React.ReactNode
   disabled?: boolean
